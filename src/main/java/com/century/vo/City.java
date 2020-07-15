@@ -5,9 +5,18 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 public class City {
+    private int id;
     private String enCityName;
     private String cnCityName;
     private String abbreviation;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEnCityName() {
         return enCityName;

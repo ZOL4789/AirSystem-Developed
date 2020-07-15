@@ -11,24 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSystem-首页</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../scripts/common.js" type="text/javascript"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            //获取用户名
-            getUserName();
-
-            //获取点击的机票信息
-            getTicketToBuy();
-
-            $("#btnSubmit").on("click", function(){
-                buy();
-            })
-        })
-    </script>
 </head>
 <body>
+<form id="buyForm" method="post" action="/AirSystem/bill/buy.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -51,7 +36,7 @@
     <div class="container">
         <div class="col-lg-2">
             <div>
-                <input type="button" ID="btnQuery" value="航班查询" class="btn btn-primary btn-block" onclick="javascript:location='home.jsp'"/>
+                <input type="button" ID="btnQuery" value="航班查询" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/init/home.html'"/>
                 <br />
                 <p>选择出发地、目的地和出发时间以进行航班班次查询。</p>
             </div>
@@ -75,6 +60,10 @@
                 <div class="panel-body" style="text-align: center; margin-top: 100px; margin-bottom: 100px">
                     <div class="row">
                         <table id="tabTickets" class="table table-bordered">
+                            <input type="hidden" id="airCode" name="airCode"/>
+                            <input type="hidden" id="startTime" name="startTime"/>
+                            <input type="hidden" id="arriveTime" name="arriveTime"/>
+                            <input type="hidden" id="theDate" name="theDate" value="${ticket.date}"/>
                             <tr class="active">
                                 <td>航空公司</td>
                                 <td>航班号</td>
@@ -86,10 +75,21 @@
                                 <td>经停</td>
                                 <td>飞行周期（星期）</td>
                             </tr>
+                            <tr>
+                                <td>${ticket.company}</td>
+                                <td id="airCodeShow">${ticket.airCode}</td>
+                                <td>${ticket.startDrome}</td>
+                                <td>${ticket.arriveDrome}</td>
+                                <td id="startTimeShow">${ticket.startTime}</td>
+                                <td id="arriveTimeShow">${ticket.arriveTime}</td>
+                                <td>${ticket.mode}</td>
+                                <td>${ticket.airStop}</td>
+                                <td>${ticket.week}</td>
+                            </tr>
                         </table>
                     </div>
                     <div class="row">
-                        <input type="button" id="btnSubmit" value="购买" class="btn btn-primary col-lg-4 col-lg-offset-4"/>
+                        <input type="button" id="btnBuy" value="购买" class="btn btn-primary col-lg-4 col-lg-offset-4"/>
                     </div>
                 </div>
             </div>
@@ -107,5 +107,10 @@
         </nav>
     </div>
 </div>
+</form>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/buy.js" type="text/javascript"></script>
 </body>
 </html>

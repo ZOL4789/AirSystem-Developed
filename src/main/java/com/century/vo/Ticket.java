@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")         //设置多实例
 public class Ticket {
+    private int id;
     private String airCode;
     private String company;
     private String startDrome;
@@ -14,6 +15,14 @@ public class Ticket {
     private String airStop;
     private String week;
     private String date;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getAirCode() {
         return airCode;
@@ -31,7 +40,7 @@ public class Ticket {
         this.company = company;
     }
 
-    public String getstartDrome() {
+    public String getStartDrome() {
         return startDrome;
     }
 

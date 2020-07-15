@@ -1,9 +1,19 @@
 package com.century.vo;
 
 public class Bill {
+    private int id;
     private int ticketId;
     private int userId;
     private String date;
+    private Ticket ticket;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getTicketId() {
         return ticketId;
@@ -27,5 +37,13 @@ public class Bill {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

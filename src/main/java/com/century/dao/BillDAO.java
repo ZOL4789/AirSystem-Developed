@@ -3,10 +3,11 @@ package com.century.dao;
 import com.century.vo.Bill;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BillDAO {
-    Bill queryUserById(int id);
     int addBill(Bill bill);
-    int queryTicketIdByUserId(int userId);
     List<Bill> queryBillByUserId(int userId);
+    int deleteBill(Map<String, Object> map);
+
 }

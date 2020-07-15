@@ -11,35 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSystem-注册</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            myFunction();
-        });
-        function myFunction() {
-            var x="${sessionScope.result2}";
-            if (x!=null&&x!=""){
-                alert(x);
-            }
-        }
-
-        //判断两次密码输入是否一致
-        function pwdIsSame() {
-            var pwd1=$("#txtPassword").val();
-            var pwd2=$("#txtPasswordAgain").val();
-            if(pwd1==pwd2){
-                return true;
-            }
-            else{
-                alert("两次密码输入不一致！");
-                return false;
-            }
-        }
-    </script>
 </head>
 <body>
-<form method="post" action="/AirSystem/user/register">
+<form id="registerForm" method="post" action="/AirSystem/user/register">
     <div class="container-fluid">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
@@ -55,8 +29,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="example-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="home.jsp">首页</a></li>
-                        <li><a href="login.jsp">登录</a></li>
+                        <li><a href="/AirSystem/init/home.html">首页</a></li>
+                        <li><a href="/AirSystem/user/login.html">登录</a></li>
                     </ul>
                 </div>
             </div>
@@ -124,7 +98,7 @@
                         <br />
                         <div class="row">
                             <div class="col-lg-6 col-lg-offset-3" style="margin-bottom:250px">
-                                <input type="submit" id="btnSubmit" value="注册" class="btn btn-primary col-lg-12" onclick="return pwdIsSame()" />
+                                <input type="button" id="btnSubmit" value="注册" class="btn btn-primary col-lg-12" />
                             </div>
                         </div>
                     </div>
@@ -144,5 +118,9 @@
         </div>
     </div>
 </form>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/register.js" type="text/javascript"></script>
 </body>
 </html>

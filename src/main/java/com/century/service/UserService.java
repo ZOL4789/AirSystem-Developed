@@ -13,13 +13,26 @@ public class UserService {
     @Resource
     private UserDAO userDAO;
 
-    public User queryUserById(int id){
-        return userDAO.queryUserById(id);
+    public int changePwd(String userName, String oldPassword, String newPassword){
+        if(userName != null && oldPassword != null && newPassword != null) {
+            if(oldPassword.equals(userDAO.queryPasswordByUserName(userName))) {
+                User user = new User();
+                user.setName(userName);
+                user.setPassword(newPassword);
+                return userDAO.updatePassword(user);
+            }
+        }
+        return -1;
     }
-    public int updatePassword(User user){return userDAO.updatePassword(user);}
-    public String queryPasswordByUserName(String userName){return userDAO.queryPasswordByUserName(userName);}
-    public User queryInfoByUserName(String userName){return userDAO.queryInfoByUserName(userName);}
-    public int queryIdByUserName(String userName){return userDAO.queryIdByUserName(userName);}
+
+    public User getPersonalInfo(String userName){
+        User user = new User();
+        if(userName != null) {
+            user = userDAO.queryInfoByUserName(userName);
+        }
+        return user;
+    }
+
     public String login(String userName, String userPwd) {
         if (userName==null||"".equals(userName))
             return "用户名不能为空";
@@ -54,7 +67,8 @@ public class UserService {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
         String date1 = sdf.format(date);
         user.setDate(date1);
-        int a = userDAO.insert(user);
+        user.setMoney(0.00);
+        int a = userDAO.addUser(user);
         if (a>=0)
         {
             return "用户注册成功";

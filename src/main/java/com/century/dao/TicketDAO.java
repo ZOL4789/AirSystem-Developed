@@ -1,6 +1,5 @@
 package com.century.dao;
 
-import com.century.vo.SAD;
 import com.century.vo.Ticket;
 
 import java.util.List;
@@ -8,12 +7,7 @@ import java.util.Map;
 
 public interface TicketDAO {
     Ticket queryAllTickets();
-    Ticket queryTicketById(int Id);
     int addTicketBatch(List<Ticket> ticketList);
-    int addTicket(Ticket ticket);
-    List<String> queryAllAirCode();
-    List<Ticket> queryTicketBySAD(SAD sad);
-    int queryIdByAirCode(String airCode);
-    Ticket queryTicketByAirCode(String airCode);
-    Ticket queryTicketByMapCSA(Map<String, Object> map);
+    List<Ticket> queryTicketByMap_startCity_arriveCity_date(Map<String, Object> map);
+    Ticket queryTicketByMap_airCode_startTime_arriveTime_date(Map<String, Object> map);
 }

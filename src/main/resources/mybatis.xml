@@ -5,6 +5,6 @@
 <configuration>
     <!--别名的配置  每个人必须会 -->
     <typeAliases>
-        <package name="com.century"/>
+        <package name="com.century.vo"/>
     </typeAliases>
 </configuration>

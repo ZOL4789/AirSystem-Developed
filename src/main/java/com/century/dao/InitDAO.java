@@ -5,7 +5,7 @@ import com.century.vo.City;
 import java.util.List;
 
 public interface InitDAO {
-    City queryCityById(int id);
+
 
     int addCity(City city);
 

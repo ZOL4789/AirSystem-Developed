@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ZOL
@@ -12,48 +13,9 @@
     <title>AirSystem-首页</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../content/jquery.datetimepicker.css" rel="stylesheet" />
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../scripts/common.js" type="text/javascript"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../scripts/jquery.datetimepicker.js"></script>
-    <script type="text/javascript">
-
-        $(document).ready(function(){
-            //初始化时间控件
-            initTimePicker();
-
-            //获取用户操作数据
-            getSAD();
-
-            //获取城市list
-            getCities();
-
-            //获取登录的用户名
-            getUserName();
-
-
-        });
-        function search(){
-            var startCity = $("#selStartCity").val();
-            var arriveCity = $("#selLastCity").val();
-            var theDate = $("#dateTime").val();
-            //发送搜索请求
-            $.ajax({
-                url:"/AirSystem/init/search",
-                type:"post",
-                contentType:"application/json;",
-                data:JSON.stringify({startCity:startCity, arriveCity:arriveCity, theDate:theDate}),
-                success:function () {
-                    location = "query.jsp";
-                },
-                error:function () {
-                    alert("请求发送失败！");
-                }
-            })
-        }
-    </script>
 </head>
 <body>
+<form id="searchForm" method="post" action="/AirSystem/ticket/list.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -81,7 +43,7 @@
                 <p>选择出发地、目的地和出发时间以进行航班班次查询。</p>
             </div>
             <div>
-                <input type="button" id="btnBuy" value="机票购买" class="btn btn-primary btn-block" onclick="javascript:location='buy.jsp'"/>
+                <input type="button" id="btnBuy" value="机票购买" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/ticket/toBuy.html'"/>
                 <br />
                 <p>使用该功能需要登录。</p>
             </div>
@@ -100,25 +62,47 @@
                     <div class="col-lg-3">
                         <div class="input-group">
                             <span id="lblStartCity"  class="input-group-addon">出发地：</span>
+                            <input type="hidden" name="startCity" id="startCity">
                             <select id="selStartCity" class="form-control">
+                                <c:forEach var="item" items="${cityList}">
+                                    <c:choose>
+                                        <c:when test="${startCity == item.cnCityName}">
+                                            <option selected="selected">${item.cnCityName}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option>${item.cnCityName}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="input-group">
                             <span id="lblLastCity" class="input-group-addon" >目的地：</span>
+                            <input type="hidden" name="arriveCity" id="arriveCity">
                             <select id="selLastCity" class="form-control">
+                                <c:forEach var="item" items="${cityList}">
+                                    <c:choose>
+                                        <c:when test="${arriveCity == item.cnCityName}">
+                                            <option selected="selected">${item.cnCityName}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option>${item.cnCityName}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="input-group">
                             <span id="lblStartDate" class="input-group-addon">出发时间：</span>
-                            <input type="text" id="dateTime" class="form-control" placeholder="请选择时间" aria-describedby="basic-addon1"></input>
+                            <input type="text" id="dateTime" name="theDate" class="form-control" placeholder="请选择时间" aria-describedby="basic-addon1" <c:if test="${date != ''}">value="${date}"</c:if>></input>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <input type="button" id="btnSearch" value="搜索" class="btn btn-primary btn-block" onclick="search()"/>
+                        <input type="button" id="btnSearch" value="搜索" class="btn btn-primary btn-block"/>
                     </div>
                 </div>
             </div>
@@ -136,5 +120,11 @@
         </nav>
     </div>
 </div>
+</form>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../scripts/jquery.datetimepicker.js"></script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/home.js" type="text/javascript"></script>
 </body>
 </html>

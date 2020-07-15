@@ -3,17 +3,33 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.century.dao.BillDAO">
-    <select id="queryUserById" parameterType="int" resultType="user">
-        select name, age from user where id=#{id}
-    </select>
+
+    <resultMap type="Bill" id="billResult">
+        <id property="id" column="bill_id"/>
+        <result property="date" column="bill_date"/>
+        <association property="ticket" javaType="Ticket">
+            <id property="id" column="id"/>
+            <result property="company" column="company"/>
+            <result property="airCode" column="airCode"/>
+            <result property="startDrome" column="startDrome"/>
+            <result property="arriveDrome" column="arriveDrome"/>
+            <result property="startTime" column="startTime"/>
+            <result property="arriveTime" column="arriveTime"/>
+            <result property="mode" column="mode"/>
+            <result property="airStop" column="airStop"/>
+            <result property="week" column="week"/>
+            <result property="date" column="date"/>
+        </association>
+    </resultMap>
+
     <insert id="addBill" parameterType="bill">
         insert into bill (userId, ticketId,date) values (#{userId}, #{ticketId},#{date})
     </insert>
-    <select id="queryTicketIdByUserId" parameterType="int" resultType="int">
-        select ticketId from bill where userId=#{userId}
+    <select id="queryBillByUserId" parameterType="int" resultMap="billResult">
+        select b.id as bill_id, b.date as bill_date,t.*  from bill b join user u on b.userId = u.id join ticket t on b.ticketId = t.id where b.userId = #{userId}
     </select>
-    <select id="queryBillByUserId" parameterType="int" resultType="bill">
-        select userId, ticketId, date from bill where userId=#{userId}
-    </select>
+    <delete id="deleteBill" parameterType="map">
+        delete from bill where userId = #{userId} and ticketId = #{ticketId} and date = #{date}
+    </delete>
 
 </mapper>

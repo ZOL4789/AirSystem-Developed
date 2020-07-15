@@ -11,26 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSystem-个人信息</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../scripts/common.js" type="text/javascript"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#btnLogout").on("click", function () {
-                logout();
-            });
-
-            //获取登录的用户名
-            getUserName();
-
-            //检查是否登录
-            checkIsLogin();
-
-            //获取用户数据
-            getPersonalInfo();
-
-        });
-    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -55,17 +35,17 @@
     <div class="container">
         <div class="col-lg-2">
             <div>
-                <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='personalInfo.jsp'"/>
+                <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/personalInfo.html'"/>
                 <br />
                 <p>可查看本账号的个人信息。</p>
             </div>
             <div>
-                <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='changePwd.jsp'"/>
+                <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/changePwd.html'"/>
                 <br />
                 <p>可修改本账号的密码。</p>
             </div>
             <div>
-                <input type="button" id="btnBill" value="我的订单" class="btn btn-primary btn-block" onclick="javascript:location='bill.jsp'"/>
+                <input type="button" id="btnBill" value="我的订单" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/bill/list.html'"/>
                 <br />
                 <p>可查看本账号以往的购买记录。</p>
             </div>
@@ -85,15 +65,15 @@
                         <table id="tabInfo" class="table table-hover table-bordered">
                             <tr class="active">
                                 <td class="col-lg-3">用户名:</td>
-                                <td id="userName"></td>
+                                <td>${user.name}</td>
                             </tr>
                             <tr>
                                 <td>绑定邮箱:</td>
-                                <td id="email"></td>
+                                <td>${user.email}</td>
                             </tr>
                             <tr>
                                 <td>注册时间:</td>
-                                <td id="date"></td>
+                                <td>${user.date}</td>
                             </tr>
                         </table>
                     </div>
@@ -113,5 +93,9 @@
         </nav>
     </div>
 </div>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/personalInfo.js" type="text/javascript"></script>
 </body>
 </html>

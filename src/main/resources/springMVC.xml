@@ -26,7 +26,25 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
+    <!--静态资源处理-->
+    <mvc:resources mapping="/scripts/**" location="/scripts/" />
+    <mvc:default-servlet-handler />
+
     <!--配置视图解析器 默认的视图解析器- -->
+    <!-- 专门用来处理视图view -->
+    <!-- 配置多视图解析器：允许同样的内容数据呈现不同的view -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+                    <property name="prefix" value="/WEB-INF/jsp/"/>
+                    <property name="suffix" value=".jsp"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
     <bean id="defaultViewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
@@ -34,6 +52,18 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
         <property name="contentType" value="text/html" />
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
+    </bean>
+    <bean id="contentNegotiationManager"
+          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+            <map>
+                <entry key="html" value="text/html;charset=UTF-8"/>
+                <entry key="json" value="application/json;charset=UTF-8"/>
+                <entry key="xml" value="application/xml;charset=UTF-8"/>
+            </map>
+        </property>
+        <property name="favorParameter" value="true"/>
+        <property name="defaultContentType" value="text/xml"/>
     </bean>
     <!-- json 支持 -->
     <bean

@@ -1118,7 +1118,7 @@
     <table id="284" parent="3" name="role"/>
     <table id="285" parent="3" name="ticket"/>
     <table id="286" parent="3" name="user"/>
-    <column id="287" parent="279" name="billId">
+    <column id="287" parent="279" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1150,7 +1150,7 @@
     </index>
     <key id="293" parent="279" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>billId</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="294" parent="279" name="bill_user_id_fk">
@@ -1417,17 +1417,22 @@
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="344" parent="286" name="user_id_uindex">
+    <column id="344" parent="286" name="money">
+      <Position>7</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="345" parent="286" name="user_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="345" parent="286" name="PRIMARY">
+    <key id="346" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="346" parent="286" name="user_id_uindex">
+    <key id="347" parent="286" name="user_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_id_uindex</UnderlyingIndexName>
     </key>

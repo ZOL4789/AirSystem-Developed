@@ -11,41 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSystem-修改密码</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../scripts/common.js" type="text/javascript"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#btnLogout").on("click", function () {
-                logout();
-            });
-
-            //获取登录的用户名
-            getUserName();
-
-            //检查是否登录
-            checkIsLogin();
-        });
-
-
-        //判断两次密码输入是否一致
-        function pwdIsSame() {
-            var pwd1=$("#txtNewPassword").val();
-            var pwd2=$("#txtNewPasswordAgain").val();
-            if(pwd1==pwd2){
-                return true;
-            }
-            else{
-                alert("两次密码输入不一致！");
-                return false;
-            }
-        }
-    </script>
 </head>
 <body>
-<form action="/AirSystem/user/updatePassword" method="post">
-
-
+<form id="userForm" method="post" action="/AirSystem/user/updatePassword">
     <div class="container-fluid">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
@@ -68,17 +36,17 @@
         <div class="container">
             <div class="col-lg-2">
                 <div>
-                    <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='personalInfo.jsp'"/>
+                    <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/personalInfo.html'"/>
                     <br />
                     <p>可查看本账号的个人信息。</p>
                 </div>
                 <div>
-                    <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='changePwd.jsp'"/>
+                    <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/changePwd.html'"/>
                     <br />
                     <p>可修改本账号的密码。</p>
                 </div>
                 <div>
-                    <input type="button" id="btnBill" value="我的订单" class="btn btn-primary btn-block" onclick="javascript:location='bill.jsp'"/>
+                    <input type="button" id="btnBill" value="我的订单" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/bill/list.html'"/>
                     <br />
                     <p>可查看本账号以往的购买记录。</p>
                 </div>
@@ -116,8 +84,8 @@
                         </div>
                         <br />
                         <div class="row">
-                            <div class="col-lg-6 col-lg-offset-3" style="margin-bottom: 250px">
-                                <input type="submit" id="btnSubmit" value="修改" class="btn btn-primary col-lg-12" onclick="return pwdIsSame()"/>
+                            <div class="col-lg-6 col-lg-offset-3" style="margin-bottom: 100px">
+                                <input type="button" id="btnSubmit" value="修改" class="btn btn-primary col-lg-12"/>
                             </div>
                         </div>
                     </div>
@@ -137,5 +105,9 @@
         </div>
     </div>
 </form>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/changePwd.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ZOL
@@ -11,29 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSystem-查看订单</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../scripts/common.js" type="text/javascript"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#btnLogout").on("click", function () {
-                logout();
-            });
-
-            //获取用户名
-            getUserName();
-
-            //检查是否登录
-            checkIsLogin();
-
-            //获取用户的历史订单
-            getBills();
-
-
-        });
-    </script>
 </head>
 <body>
+<form id="billForm" method="post" action="/AirSystem/bill/refund.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -49,6 +30,7 @@
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav navbar-right" id="navshow">
+
             </ul>
         </div>
         </div>
@@ -56,17 +38,17 @@
     <div class="container">
         <div class="col-lg-2">
             <div>
-                <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='personalInfo.jsp'"/>
+                <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/personalInfo.html'"/>
                 <br />
                 <p>可查看本账号的个人信息。</p>
             </div>
             <div>
-                <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='changePwd.jsp'"/>
+                <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/changePwd.html'"/>
                 <br />
                 <p>可修改本账号的密码。</p>
             </div>
             <div>
-                <input type="button" id="btnBill" value="我的订单" class="btn btn-primary btn-block" onclick="javascript:location='bill.jsp'"/>
+                <input type="button" id="btnBill" value="我的订单" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/bill/list.html'"/>
                 <br />
                 <p>可查看本账号以往的购买记录。</p>
             </div>
@@ -84,6 +66,9 @@
                 <div class="panel-body" style="text-align: center; margin-top: 50px; margin-bottom: 50px">
                     <div class="row">
                         <table id="tabBill" class="table table-bordered">
+                            <input type="hidden" id="airCode" name="airCode"/>
+                            <input type="hidden" id="billDate" name="billDate"/>
+                            <input type="hidden" id="ticketDate" name="ticketDate"/>
                             <tr class="active">
                                 <td>航空公司</td>
                                 <td>航班号</td>
@@ -94,9 +79,24 @@
                                 <td>机型</td>
                                 <td>经停</td>
                                 <td>飞行周期（星期）</td>
-                                <td>出发日期</td>;
+                                <td>出发日期</td>
                                 <td>下单日期</td>
                             </tr>
+                            <c:forEach var="bill" items="${billList}" varStatus="i">
+                                <tr onclick="refund(${i.index})">
+                                    <td>${bill.ticket.company}</td>
+                                    <td>${bill.ticket.airCode}</td>
+                                    <td>${bill.ticket.startDrome}</td>
+                                    <td>${bill.ticket.arriveDrome}</td>
+                                    <td>${bill.ticket.startTime}</td>
+                                    <td>${bill.ticket.arriveTime}</td>
+                                    <td>${bill.ticket.mode}</td>
+                                    <td>${bill.ticket.airStop}</td>
+                                    <td>${bill.ticket.week}</td>
+                                    <td>${bill.ticket.date}</td>
+                                    <td>${bill.date}</td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                     <div class="row">
@@ -105,6 +105,9 @@
                             </ul>
                         </nav>
                     </div>
+                </div>
+                <div class="panel-footer">
+                    <span>点击订单可进行退票</span>
                 </div>
             </div>
         </div>
@@ -121,5 +124,10 @@
         </nav>
     </div>
 </div>
+</form>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/bill.js" type="text/javascript"></script>
 </body>
 </html>

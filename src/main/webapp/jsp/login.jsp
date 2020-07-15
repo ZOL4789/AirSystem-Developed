@@ -11,23 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSystem-登录</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../scripts/common.js" type="text/javascript"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            myFunction();
-        });
-        function myFunction() {
-            var x="${sessionScope.result}";
-            if (x!=null&&x!=""){
-                alert(x);
-            }
-        }
-    </script>
 </head>
 <body>
-<form method="post" action="/AirSystem/user/login">
+<form method="post" action="/AirSystem/user/login.do">
     <div class="container-fluid">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
@@ -43,8 +29,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="example-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="home.jsp">首页</a></li>
-                        <li><a href="register.jsp">注册</a></li>
+                        <li><a href="/AirSystem/init/home.html">首页</a></li>
+                        <li><a href="/AirSystem/user/register.html">注册</a></li>
                     </ul>
                 </div>
             </div>
@@ -112,6 +98,10 @@
         </div>
     </div>
 </form>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/common.js" type="text/javascript"></script>
+<script src="../js/login.js" type="text/javascript"></script>
 </body>
 </html>
 
