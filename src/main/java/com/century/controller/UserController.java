@@ -1,6 +1,8 @@
 package com.century.controller;
 
+import com.century.service.PassengerService;
 import com.century.service.UserService;
+import com.century.vo.Passenger;
 import com.century.vo.User;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.net.IDN;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -23,8 +27,10 @@ import java.util.Map;
 public class UserController {
     @Resource
     private UserService userService;
+    @Resource
+    private PassengerService passengerService;
 
-    @RequestMapping("/login")
+    @RequestMapping("/doLogin.html")
     public ModelAndView login(String user_Name, String user_Password, HttpServletResponse response, HttpSession session){
         String loginResult=userService.login(user_Name,user_Password);
         if (loginResult.equals("用户登录成功")){
@@ -38,6 +44,16 @@ public class UserController {
             RedirectView redirectView=new RedirectView("/init/home.html",true,true);
             ModelAndView modelAndView=new ModelAndView(redirectView);
             return modelAndView;
+        }else if(loginResult.equals("管理员登录成功")){
+            Cookie cookie = new Cookie("userName",user_Name);
+            //cookie.setHttpOnly(true);
+            cookie.setMaxAge(60*60*24*7);
+            cookie.setPath("/");    //设置全局访问
+            response.addCookie(cookie);
+            RedirectView redirectView=new RedirectView("/hotel/hoteladd.html",true,true);
+            ModelAndView modelAndView = new ModelAndView(redirectView);
+            modelAndView.addObject("msg","欢迎使用AirSystem管理系统！");
+            return modelAndView;
         }
         session.setAttribute("result",loginResult);
         RedirectView redirectView2=new RedirectView("/user/login.html",true,true);
@@ -45,7 +61,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping("/register")
+    @RequestMapping("/doRegister.html")
     public ModelAndView register(String userName, String password, String phone,String email,HttpSession session){
         User user = new User();
         user.setName(userName);
@@ -98,7 +114,9 @@ public class UserController {
             }
         }
         User user = userService.getPersonalInfo(userName);
+        List<Passenger> passengerList = passengerService.findPassenger(userName);
         modelAndView.addObject("user", user);
+        modelAndView.addObject("passengerList", passengerList);
         modelAndView.setViewName("../../jsp/personalInfo");
         return modelAndView;
     }
@@ -111,7 +129,6 @@ public class UserController {
         response.addCookie(cookie);
         return "../../jsp/login";
     }
-
 
     @ResponseBody
     @RequestMapping("/getUserName")

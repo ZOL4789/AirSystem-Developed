@@ -20,16 +20,25 @@
             <result property="week" column="week"/>
             <result property="date" column="date"/>
         </association>
+        <association property="passenger" javaType="Passenger">
+            <id property="id" column="p_id"/>
+            <result property="name" column="p_name"/>
+            <result property="IDNum" column="IDNum"/>
+            <association property="role" javaType="Role">
+                <id property="id" column="r_id"/>
+                <result property="name" column="r_name"/>
+            </association>
+        </association>
     </resultMap>
 
     <insert id="addBill" parameterType="bill">
-        insert into bill (userId, ticketId,date) values (#{userId}, #{ticketId},#{date})
+        insert into bill (userId, ticketId,passengerId,date) values (#{userId}, #{ticketId},#{passengerId}, #{date})
     </insert>
     <select id="queryBillByUserId" parameterType="int" resultMap="billResult">
-        select b.id as bill_id, b.date as bill_date,t.*  from bill b join user u on b.userId = u.id join ticket t on b.ticketId = t.id where b.userId = #{userId}
+        select b.id as bill_id, b.date as bill_date,t.*,p.id p_id, p.name p_name, p.IDNum, r.id r_id, r.name r_name  from bill b join user u on b.userId = u.id join ticket t on b.ticketId = t.id join passenger p on b.passengerId = p.id join role r on p.roleType = r.id where b.userId = #{userId}
     </select>
     <delete id="deleteBill" parameterType="map">
-        delete from bill where userId = #{userId} and ticketId = #{ticketId} and date = #{date}
+        delete from bill where userId = #{userId} and passengerId = #{passengerId} and ticketId = #{ticketId} and date = #{date}
     </delete>
 
 </mapper>

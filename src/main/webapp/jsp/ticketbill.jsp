@@ -69,6 +69,7 @@
                             <input type="hidden" id="airCode" name="airCode"/>
                             <input type="hidden" id="billDate" name="billDate"/>
                             <input type="hidden" id="ticketDate" name="ticketDate"/>
+                            <input type="hidden" id="passengerName" name="passengerName"/>
                             <tr class="active">
                                 <td>航空公司</td>
                                 <td>航班号</td>
@@ -77,10 +78,10 @@
                                 <td>出发时间</td>
                                 <td>到达时间</td>
                                 <td>机型</td>
-                                <td>经停</td>
-                                <td>飞行周期（星期）</td>
                                 <td>出发日期</td>
                                 <td>下单日期</td>
+                                <td>乘客</td>
+                                <td>类型</td>
                             </tr>
                             <c:forEach var="bill" items="${billList}" varStatus="i">
                                 <tr onclick="refund(${i.index})">
@@ -91,10 +92,10 @@
                                     <td>${bill.ticket.startTime}</td>
                                     <td>${bill.ticket.arriveTime}</td>
                                     <td>${bill.ticket.mode}</td>
-                                    <td>${bill.ticket.airStop}</td>
-                                    <td>${bill.ticket.week}</td>
                                     <td>${bill.ticket.date}</td>
                                     <td>${bill.date}</td>
+                                    <td>${bill.passenger.name}</td>
+                                    <td>${bill.passenger.role.name}票</td>
                                 </tr>
                             </c:forEach>
                         </table>

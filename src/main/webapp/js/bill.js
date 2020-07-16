@@ -1,6 +1,7 @@
 var airCode;
 var billDate;
 var ticketDate;
+var passengerName;
 
 var btnLogout;
 
@@ -10,6 +11,7 @@ $(function(){
     airCode = $("#airCode");
     billDate = $("#billDate");
     ticketDate = $("#ticketDate")
+    passengerName = $("#passengerName");
 
     //获取用户名
     getUserName();
@@ -27,8 +29,9 @@ function refund(i) {
     });
     if (confirm("确定取消订单吗？")) {
         airCode.val(colArr[1]);
-        ticketDate.val(colArr[9]);
-        billDate.val(colArr[10]);
+        ticketDate.val(colArr[7]);
+        billDate.val(colArr[8]);
+        passengerName.val(colArr[9]);
         $("#billForm").submit();
     }
 }

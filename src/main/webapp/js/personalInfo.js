@@ -3,6 +3,7 @@ var btnLogout;
 
 $(function(){
     btnLogout = $("#btnLogout");
+    btnAdd = $("#btnAdd");
 
     //获取用户名
     getUserName();

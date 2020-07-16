@@ -43,9 +43,14 @@
                 <p>选择出发地、目的地和出发时间以进行航班班次查询。</p>
             </div>
             <div>
-                <input type="button" id="btnBuy" value="机票购买" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/ticket/toBuy.html'"/>
+                <input type="button" id="btnBuy" value="机票购买" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/ticket/toBookTicket.html'"/>
                 <br />
                 <p>使用该功能需要登录。</p>
+            </div>
+            <div>
+                <input type="button" id="btnBookHotel" value="酒店预订" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/hotel/toBookHotel.html'" />
+                <br />
+                <p>可以预订酒店。</p>
             </div>
             <div>
                 <input type="button" id="btnNotice" value="公告" class="btn btn-primary btn-block" disabled="true" />

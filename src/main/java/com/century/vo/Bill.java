@@ -4,8 +4,10 @@ public class Bill {
     private int id;
     private int ticketId;
     private int userId;
+    private int passengerId;
     private String date;
     private Ticket ticket;
+    private Passenger passenger;
 
     public int getId() {
         return id;
@@ -45,5 +47,21 @@ public class Bill {
 
     public void setTicket(Ticket ticket) {
         this.ticket = ticket;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
+
+    public int getPassengerId() {
+        return passengerId;
+    }
+
+    public void setPassengerId(int passengerId) {
+        this.passengerId = passengerId;
     }
 }

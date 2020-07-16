@@ -34,7 +34,7 @@
     </select>
 
     <select id="queryUserByName" parameterType="string" resultType="user">
-        select name,password from  user where name=#{name}
+        select * from  user where name=#{name}
     </select>
 
     <insert id="addUser" parameterType="user">

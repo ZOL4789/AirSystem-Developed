@@ -1,9 +1,11 @@
 package com.century.service;
 
 import com.century.dao.BillDAO;
+import com.century.dao.PassengerDAO;
 import com.century.dao.TicketDAO;
 import com.century.dao.UserDAO;
 import com.century.vo.Bill;
+import com.century.vo.Passenger;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,39 +20,44 @@ public class BillService {
     private UserDAO userDAO;
     @Resource
     private TicketDAO ticketDAO;
+    @Resource
+    private PassengerDAO passengerDAO;
 
-    public int book(String airCode, String startTime, String arriveTime, String theDate, String userName){
-        if(!airCode.equals("") && !userName.equals("") && !startTime.equals("") && !arriveTime.equals("") && !theDate.equals("")){
+    public int book(String airCode, String startTime, String arriveTime, String theDate, String userName, String passengerName){
+        if(!airCode.equals("") && !userName.equals("") && !startTime.equals("") && !arriveTime.equals("") && !theDate.equals("") && passengerName != null){
             Map<String, Object> mapCondition = new HashMap<String, Object>();
             mapCondition.put("airCode", airCode);
             mapCondition.put("startTime", startTime);
             mapCondition.put("arriveTime", arriveTime);
             mapCondition.put("date", theDate);
             int ticketId = ticketDAO.queryTicketByMap_airCode_startTime_arriveTime_date(mapCondition).getId();
-            System.out.println("ticketId = " + ticketId);
             int userId = userDAO.queryIdByUserName(userName);
+            Passenger passenger = passengerDAO.queryPassengerByName(passengerName);
             Date date = new Date();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             String dateSimp = simpleDateFormat.format(date);
             Bill bill = new Bill();
             bill.setTicketId(ticketId);
             bill.setUserId(userId);
+            bill.setPassengerId(passenger.getId());
             bill.setDate(dateSimp);
             return billDAO.addBill(bill);
         }
         return -1;
     }
 
-    public int refund(String airCode, String billDate, String ticketDate, String userName){
-        if(airCode != null && userName != null && billDate != null && ticketDate != null) {
+    public int refund(String airCode, String billDate, String ticketDate, String userName, String passengerName){
+        if(airCode != null && userName != null && billDate != null && ticketDate != null && passengerName != null) {
             Map<String, Object> mapCondition = new HashMap<String, Object>();
             mapCondition.put("airCode", airCode);
             mapCondition.put("date", ticketDate);
             int userId = userDAO.queryIdByUserName(userName);
             int ticketId = ticketDAO.queryTicketByMap_airCode_startTime_arriveTime_date(mapCondition).getId();
+            Passenger passenger = passengerDAO.queryPassengerByName(passengerName);
             mapCondition.put("date", billDate);
             mapCondition.put("userId", userId);
             mapCondition.put("ticketId", ticketId);
+            mapCondition.put("passengerId", passenger.getId());
             return billDAO.deleteBill(mapCondition);
         }
         return -1;

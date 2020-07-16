@@ -9,11 +9,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirSystem-注册</title>
+    <title>AirSystem-酒店添加</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<form id="registerForm" method="post" action="/AirSystem/user/doRegister.html">
+<form id="hotelForm" method="post" action="/AirSystem/user/doHotelAdd.html">
     <div class="container-fluid">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
@@ -38,27 +38,35 @@
         <div class="container">
             <div class="col-lg-2">
                 <div>
-                    <input type="button" id="Button1" value="注册协议" class="btn btn-primary btn-block" disabled="true"/><br />
-                    <p>此账号仅用于AirSystem用户使用。</p>
-                    <p>点击注册即表示同意AirSystem访问隐私，并且AirSystem保证不泄露用户隐私。</p>
-                    <p>此账号由所注册用户所拥有，拥有者应受法律监管，切勿用于违法犯罪。</p>
+                    <input type="button" id="btnInfo" value="查看订单" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/personalInfo.html'"/>
+                    <br />
+                    <p>可查看所有用户的订单。</p>
                 </div>
                 <div>
-                    <input type="button" id="Button2" value="注册指导" class="btn btn-primary btn-block" disabled="true"/><br />
-                    <p>用户名不包含空格。</p>
-                    <p>密码由一到十六个字符组成。</p>
-                    <p>邮箱可用于找回密码。</p>
+                    <input type="button" id="btnChangePwd" value="查看酒店" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/changePwd.html'"/>
+                    <br />
+                    <p>可查看所有酒店信息。</p>
                 </div>
                 <div>
-                    <input type="button" id="Button3" value="关于注册" class="btn btn-primary btn-block" disabled="true"/><br />
-                    <p>注册账号可以享受AirSystem更多更好的服务。</p>
-                    <p>注册账号最终解释权归AirSystem所有。</p>
+                    <input type="button" id="btnBill" value="添加酒店" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/bill/list.html'"/>
+                    <br />
+                    <p>可添加酒店信息。</p>
+                </div>
+                <div>
+                    <input type="button" id="btnLogout" value="查看机票" class="btn btn-danger btn-block" />
+                    <br />
+                    <p>可查看所有机票信息。</p>
+                </div>
+                <div>
+                    <input type="button" id="" value="更新机票" class="btn btn-danger btn-block" />
+                    <br />
+                    <p>可更新机票信息。</p>
                 </div>
             </div>
             <div class="col-lg-10">
                 <div class="panel panel-primary">
                     <div class="panel-title" style="font-size:24px">
-                        <p style="text-align: center;">注册</p>
+                        <p style="text-align: center;">添加酒店</p>
                     </div>
                     <div class="panel-body" style="height: 100%">
                         <div class="row" style="margin-top: 200px;">

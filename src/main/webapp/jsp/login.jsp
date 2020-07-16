@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<form method="post" action="/AirSystem/user/login.do">
+<form method="post" action="/AirSystem/user/doLogin.html">
     <div class="container-fluid">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">

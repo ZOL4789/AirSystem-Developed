@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: ZOL
@@ -13,6 +15,7 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+<form id="personalInfoForm" method="post" action="/AirSystem/passenger/passengeradd.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -75,6 +78,30 @@
                                 <td>注册时间:</td>
                                 <td>${user.date}</td>
                             </tr>
+                            <tr class="thead active">
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td>乘客信息</td>
+                                <td><input type="submit" id="btnAdd" value="添加乘客"/></td>
+                            </tr>
+                            <c:forEach var="passenger" items="${passengerList}" varStatus="i">
+                                <tr>
+                                    <td>姓名：</td>
+                                    <td>${passenger.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>身份证号：</td>
+                                    <td>${passenger.IDNum}</td>
+                                </tr>
+                                <tr>
+                                    <td>身份：</td>
+                                    <td>${passenger.role.name}</td>
+                                </tr>
+                                <tr class="thead active">
+                                    <td colspan="2"></td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                 </div>
@@ -93,6 +120,7 @@
         </nav>
     </div>
 </div>
+</form>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../js/common.js" type="text/javascript"></script>

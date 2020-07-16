@@ -1,13 +1,9 @@
 package com.century.controller;
 
 import com.century.service.BillService;
-import com.century.service.TicketService;
-import com.century.service.UserService;
 import com.century.vo.Bill;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -23,8 +19,8 @@ public class BillController {
     private BillService billService;
 
     //保存用户订单到数据库中
-    @RequestMapping("/buy.html")
-    public  ModelAndView buy(HttpServletRequest request, String airCode, String startTime, String arriveTime, String theDate){
+    @RequestMapping("/bookTicket.html")
+    public  ModelAndView buy(HttpServletRequest request, String airCode, String startTime, String arriveTime, String theDate, String passengerName){
         ModelAndView modelAndView = new ModelAndView();
         Cookie[] cookies = request.getCookies();
         String userName = "";
@@ -35,17 +31,17 @@ public class BillController {
                 }
             }
         }
-        int status = billService.book(airCode, startTime, arriveTime, theDate, userName);
+        int status = billService.book(airCode, startTime, arriveTime, theDate, userName, passengerName);
         List<Bill> bills = billService.getBillsList(userName);
         modelAndView.addObject("billList", bills);
         modelAndView.addObject("status", status);
-        modelAndView.setViewName("../../jsp/bill");
+        modelAndView.setViewName("../../jsp/ticketbill");
         return modelAndView;
     }
 
 
     @RequestMapping("/refund.html")
-    public ModelAndView refund(HttpServletRequest request, String airCode, String billDate, String ticketDate){
+    public ModelAndView refund(HttpServletRequest request, String airCode, String billDate, String ticketDate, String passengerName){
         ModelAndView modelAndView = new ModelAndView();
         String userName = "";
         Cookie[] cookies = request.getCookies();
@@ -56,11 +52,11 @@ public class BillController {
                 }
             }
         }
-        int status = billService.refund(airCode, billDate, ticketDate, userName);
+        int status = billService.refund(airCode, billDate, ticketDate, userName, passengerName);
         List<Bill> bills = billService.getBillsList(userName);
         modelAndView.addObject("billList", bills);
         modelAndView.addObject("status", status);
-        modelAndView.setViewName("../../jsp/bill");
+        modelAndView.setViewName("../../jsp/ticketbill");
         return modelAndView;
     }
 
@@ -79,7 +75,8 @@ public class BillController {
         }
         List<Bill> bills = billService.getBillsList(userName);
         modelAndView.addObject("billList", bills);
-        modelAndView.setViewName("../../jsp/bill");
+        modelAndView.setViewName("../../jsp/ticketbill");
         return modelAndView;
     }
+
 }

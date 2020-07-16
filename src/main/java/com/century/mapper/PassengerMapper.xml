@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.century.dao.PassengerDAO">
+
+    <resultMap id="passengerResult" type="passenger">
+        <id property="id" column="p_id"/>
+        <result property="name" column="p_name"/>
+        <result property="IDNum" column="IDNum"/>
+        <association property="role" javaType="Role">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <insert id="addPassenger" parameterType="passenger">
+        insert into passenger(name, IDNum, roleType, userId) values (#{name}, #{IDNum}, #{roleType}, #{userId})
+    </insert>
+    <select id="queryRoleName" resultType="String">
+        select name from role;
+    </select>
+    <select id="queryPassengerByUserId" parameterType="int" resultMap="passengerResult">
+        select p.id p_id, p.name p_name, p.IDNum, r.* from passenger p join role r on p.roleType = r.id where p.userId = #{userId};
+     </select>
+    <select id="queryPassengerByName" parameterType="String" resultType="passenger">
+        select * from passenger where name = #{name};
+    </select>
+</mapper>
