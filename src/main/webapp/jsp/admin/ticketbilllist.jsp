@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirSystem-查看用户订单</title>
+    <title>AirSystem-查看用户机票订单</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
@@ -77,7 +77,7 @@
             <div class="col-lg-10">
                 <div class="panel panel-primary">
                     <div class="panel-title">
-                        <div style="text-align: center; font-size: 24px">所有订单</div>
+                        <div style="text-align: center; font-size: 24px">所有机票订单</div>
                     </div>
                     <div class="panel-body" style="text-align: center; margin-top: 50px; margin-bottom: 50px">
                         <div class="row">

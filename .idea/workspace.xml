@@ -7,88 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe585f7d-5fb0-4863-9844-c20d1787688b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/controller/HotelBillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/controller/TicketBillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/dao/HotelBillDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/dao/TicketBillDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/interceptor/SysInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/mapper/HotelBillMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/mapper/TicketBillMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/service/HotelBillService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/service/TicketBillService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/tools/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/vo/HotelBill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/century/vo/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/hoteladd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/hotelbilllist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/hotellist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/passengerlist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/ticketbilllist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/ticketlist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/userlist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/bookhotel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/hotelbill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/queryhotel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/ticketbill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/hoteladd.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/hotelbilllist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/hotellist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/passengerlist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/ticketbilllist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/ticketlist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/admin/userlist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/queryhotel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dfde2685-0f2e-496d-b5db-63c186a5b664.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dfde2685-0f2e-496d-b5db-63c186a5b664.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/controller/BillController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/controller/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/controller/PassengerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/controller/PassengerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/controller/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/dao/BillDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/dao/HotelDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/dao/HotelDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/dao/PassengerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/dao/PassengerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/dao/TicketDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/dao/TicketDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/mapper/BillMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/mapper/HotelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/mapper/HotelMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/mapper/PassengerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/mapper/PassengerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/mapper/TicketMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/mapper/TicketMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/service/BillService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/service/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/service/HotelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/service/PassengerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/service/PassengerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/service/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/vo/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/vo/TicketBill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/vo/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/vo/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/century/vo/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/century/vo/Passenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springMVC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springMVC.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/bill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/bookticket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/bookticket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/changePwd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/changePwd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/passengeradd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/passengeradd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/queryticket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/billlist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/hotelbill.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/bookhotel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/bookhotel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/bookticket.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/bookticket.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/changePwd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/changePwd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/hoteladd.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/hotellist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/403.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/passengeradd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/passengeradd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/personalInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/personalInfo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/queryticket.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/queryticket.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/ticketbill.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/ticketbill.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/ticketlist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/404.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/userlist.jsp" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -135,7 +54,49 @@
         <item name="mydb@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="hotel: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="passenger: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="role: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="room: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="ticket: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="ticket_bill: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -151,11 +112,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/century/controller/TicketBillController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
+            <state relative-caret-position="111">
               <caret line="121" column="51" selection-start-line="121" selection-end-line="122" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3981#3990#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -206,7 +166,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/admin/ticketbilllist.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="2300">
               <caret line="115" column="75" selection-start-line="115" selection-start-column="75" selection-end-line="115" selection-end-column="75" />
             </state>
           </provider>
@@ -235,7 +195,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/century/service/TicketBillService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="460">
               <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
             </state>
           </provider>
@@ -244,7 +204,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/century/mapper/TicketBillMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="500">
               <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
             </state>
           </provider>
@@ -364,8 +324,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="175" />
-    <option name="y" value="-16" />
+    <option name="x" value="53" />
+    <option name="y" value="5" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
@@ -375,8 +335,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -407,84 +365,7 @@
               <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="century" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="century" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="century" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="century" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="century" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="century" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AirSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -500,13 +381,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -758,7 +640,8 @@
       <workItem from="1594985424602" duration="14323000" />
       <workItem from="1595030120177" duration="6432000" />
       <workItem from="1595036734066" duration="6618000" />
-      <workItem from="1595043495421" duration="7792000" />
+      <workItem from="1595043495421" duration="7911000" />
+      <workItem from="1595051997835" duration="2272000" />
     </task>
     <task id="LOCAL-00001" summary="框架模型完成">
       <created>1593514109125</created>
@@ -851,11 +734,18 @@
       <option name="project" value="LOCAL" />
       <updated>1594867033212</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="（软件工程实训）所有功能完成。">
+      <created>1595051478040</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1595051478041</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375328000" />
+    <option name="totallyTimeSpent" value="377719000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -869,7 +759,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4945355" visible="true" weight="0.1673774" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4945355" visible="true" weight="0.16897655" />
       <window_info id="Structure" order="1" sideWeight="0.5054645" side_tool="true" weight="0.27665246" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -922,7 +812,8 @@
     <MESSAGE value="（软件工程实训）在原有的项目上继续完善。" />
     <MESSAGE value="（软件工程实训）完成了原有项目的更改" />
     <MESSAGE value="（软件工程实训）新增和完成乘客。" />
-    <option name="LAST_COMMIT_MESSAGE" value="（软件工程实训）新增和完成乘客。" />
+    <MESSAGE value="（软件工程实训）所有功能完成。" />
+    <option name="LAST_COMMIT_MESSAGE" value="（软件工程实训）所有功能完成。" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/changePwd.js">
@@ -1188,45 +1079,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/service/TicketService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/controller/TicketBillController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="111">
+          <caret line="121" column="51" selection-start-line="121" selection-end-line="122" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/bookticket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/controller/TicketController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="95" column="63" selection-start-line="95" selection-start-column="63" selection-end-line="95" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/service/TicketBillService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/mapper/TicketBillMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/admin/ticketbilllist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="115" column="75" selection-start-line="115" selection-start-column="75" selection-end-line="115" selection-end-column="75" />
+    <entry file="das://dfde2685-0f2e-496d-b5db-63c186a5b664/schema/mydb/table/ticket_bill">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
@@ -1241,12 +1109,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://dfde2685-0f2e-496d-b5db-63c186a5b664/schema/mydb/table/ticket_bill">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/service/TicketService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/bookticket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/admin/ticketbilllist.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2300">
+          <caret line="115" column="75" selection-start-line="115" selection-start-column="75" selection-end-line="115" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -1259,14 +1139,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/controller/TicketBillController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/controller/TicketController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="121" column="51" selection-start-line="121" selection-end-line="122" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3981#3990#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1520">
+          <caret line="95" column="63" selection-start-line="95" selection-start-column="63" selection-end-line="95" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/service/TicketBillService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/century/mapper/TicketBillMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
         </state>
       </provider>
     </entry>
