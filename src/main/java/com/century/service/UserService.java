@@ -10,6 +10,7 @@ import java.net.IDN;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -83,5 +84,20 @@ public class UserService {
         return "注册失败";
     }
 
+    public List<User> getAllUser(){
+        return userDAO.queryAllUser();
+    }
 
+    public User getUserById(int userId){
+        return userDAO.queryUserById(userId);
+    }
+
+    public int removeUser(Map<String,Object> map){
+        String userId = (String)map.get("userId");
+        return userDAO.deleteUserById(userId);
+    }
+
+    public int updateUser(Map<String, Object> map){
+        return userDAO.updateUser(map);
+    }
 }

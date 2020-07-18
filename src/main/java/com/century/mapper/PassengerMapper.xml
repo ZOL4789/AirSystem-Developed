@@ -8,9 +8,18 @@
         <id property="id" column="p_id"/>
         <result property="name" column="p_name"/>
         <result property="IDNum" column="IDNum"/>
+        <result property="date" column="p_date"/>
         <association property="role" javaType="Role">
             <id property="id" column="id"/>
             <result property="name" column="name"/>
+        </association>
+        <association property="user" javaType="User">
+            <id property="id" column="u_id"/>
+            <result property="name" column="u_name"/>
+            <result property="password" column="password"/>
+            <result property="phone" column="phone"/>
+            <result property="email" column="email"/>
+            <result property="date" column="u_date"/>
         </association>
     </resultMap>
 
@@ -20,10 +29,36 @@
     <select id="queryRoleName" resultType="String">
         select name from role;
     </select>
+    <select id="queryRoleByName" parameterType="String" resultType="role">
+        select * from role where name = #{roleName}
+    </select>
     <select id="queryPassengerByUserId" parameterType="int" resultMap="passengerResult">
-        select p.id p_id, p.name p_name, p.IDNum, r.* from passenger p join role r on p.roleType = r.id where p.userId = #{userId};
+        select p.id p_id, p.name p_name, p.IDNum, r.*, u.id u_id, u.name u_name, u.password, u.phone, u.email, u.date u_date from passenger p join role r on p.roleType = r.id join user u on p.userId = u.id where p.userId = #{userId};
      </select>
     <select id="queryPassengerByName" parameterType="String" resultType="passenger">
         select * from passenger where name = #{name};
     </select>
+    <select id="queryAllPassenger" resultMap="passengerResult">
+        select p.id p_id, p.name p_name, p.IDNum,p.date p_date, r.*, u.id u_id, u.name u_name, u.password, u.phone, u.email, u.date u_date  from passenger p join role r on p.roleType = r.id join user u on p.userId = u.id
+    </select>
+    <delete id="deletePassengerById" parameterType="String">
+        delete from passenger where id = #{psssengerId}
+    </delete>
+    <update id="updatePassenger" parameterType="map">
+        update passenger
+        <trim prefix="set" suffixOverrides="," suffix="where id = #{passengerId}">
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="IDNum != null and IDNum != ''">
+                IDNum = #{IDNum},
+            </if>
+            <if test="userId != null and userId != ''">
+                userId = #{userId},
+            </if>
+            <if test="roleType != null and roleType != ''">
+                roleType = #{roleType},
+            </if>
+        </trim>
+    </update>
 </mapper>

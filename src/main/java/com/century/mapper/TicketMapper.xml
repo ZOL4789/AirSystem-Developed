@@ -6,6 +6,9 @@
     <select id="queryAllTickets" resultType="ticket">
         select id,company, airCode, startDrome, arriveDrome, startTime, arriveTime, mode, airStop, week, date from ticket
     </select>
+    <select id="queryTicketById" parameterType="String" resultType="ticket">
+        select * from ticket where id = #{ticketId}
+    </select>
 
     <insert id="addTicketBatch" parameterType="list">
         insert ignore into ticket(company, airCode, startDrome, arriveDrome, startTime, arriveTime, mode, airStop, week, date) values
@@ -37,4 +40,39 @@
 
     </select>
 
+    <delete id="deleteTicketById" parameterType="map">
+        delete from ticket where id = #{ticketId}
+    </delete>
+    <update id="updateTicket" parameterType="map">
+        update ticket
+        <trim prefix="set" suffixOverrides="," suffix="where id = #{ticketId}">
+            <if test="company != null and company != ''">
+                company = #{company},
+            </if>
+            <if test="airCode != null and airCode != ''">
+                airCode = #{airCode},
+            </if>
+            <if test="startDrome != null and startDrome != ''">
+                startDrome = #{startDrome},
+            </if>
+            <if test="arriveDrome != null and arriveDrome != ''">
+                arriveDrome = #{arriveDrome},
+            </if>
+            <if test="startTime != null and startTime != ''">
+                startTime = #{startTime},
+            </if>
+            <if test="arriveTime != null and arriveTime != ''">
+                arriveTime = #{arriveTime},
+            </if>
+            <if test="mode != null and mode != ''">
+                mode = #{mode},
+            </if>
+            <if test="airStop != null and airStop != ''">
+                airStop = #{airStop},
+            </if>
+            <if test="week != null and week != ''">
+                week = #{week},
+            </if>
+        </trim>
+    </update>
 </mapper>

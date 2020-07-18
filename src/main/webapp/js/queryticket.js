@@ -4,11 +4,6 @@ var btnPre;
 var btnNext;
 var theDate;
 
-var airCode;
-var startTime;
-var arriveTime;
-var theDateToBuy;
-
 $(function (){
     pageIndex = $("#pageIndex");
     pageNum = $("#pageNum");
@@ -16,10 +11,6 @@ $(function (){
     btnNext = $("#btnNext");
     theDate = $("#theDate");
 
-    airCode = $("#airCode");
-    startTime = $("#startTime");
-    arriveTime = $("#arriveTime");
-    theDateToBuy = $("#theDateToBuy");
 
     btnPre.on("click", function(){
         changePageIndex(pageIndex.val() - 1);
@@ -29,6 +20,11 @@ $(function (){
         changePageIndex(parseInt(pageIndex.val()) + 1);
     })
 
+    $(".choose").on("click", function(){
+        toBook($(this));
+    })
+
+    getUserName();
     tableRowMove();
 })
 
@@ -43,16 +39,10 @@ function changePageIndex(index) {
     $("#ticketForm").submit();
 }
 
-function toBuy(i){
-    var colArr = new Array();
-    $("#tabTickets tr").eq(i + 1).find("td").each(function () {
-        colArr.push($(this).text());
-    });
-
-    airCode.val(colArr[1]);
-    startTime.val(colArr[4]);
-    arriveTime.val(colArr[5]);
-    theDateToBuy.val(theDate.val());
-    $("#buyForm").submit();
+function toBook(obj){
+    $("#ticketId").val(obj.attr("ticketId"));
+    alert(obj.attr("ticketId") + "/" +$("#ticketId").val());
+    $("#ticketForm").attr("action","/AirSystem/ticket/toBook.html");
+    $("#ticketForm").submit();
 }
 

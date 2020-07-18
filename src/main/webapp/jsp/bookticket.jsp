@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: ZOL
@@ -10,11 +11,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirSystem-预订</title>
+    <title>AirSystem-预订机票</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<form id="buyForm" method="post" action="/AirSystem/bill/bookTicket.html">
+<form id="buyForm" method="post" action="/AirSystem/ticket/bill/book.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -37,18 +38,22 @@
     <div class="container">
         <div class="col-lg-2">
             <div>
-                <input type="button" ID="btnQuery" value="航班查询" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/init/home.html'"/>
+                <input type="button" id="btnQuery" value="航班查询" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/init/home.html'"/>
                 <br />
                 <p>选择出发地、目的地和出发时间以进行航班班次查询。</p>
             </div>
             <div>
-                <input type="button" ID="btnBuyInBuyPage" value="机票购买" class="btn btn-primary btn-block" disabled="true"/>
+                <input type="button" id="btnBook" value="机票预订" class="btn btn-primary btn-block" disabled="true"/>
                 <br />
                 <p>使用该功能需要登录。</p>
-                <p>登录后请点击需要购买的机票进行购买。</p>
             </div>
             <div>
-                <input type="button" ID="btnNotice" value="公告" class="btn btn-primary btn-block" disabled="true"/>
+                <input type="button" id="btnBookHotel" value="酒店预订" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/hotel/queryList.html'" />
+                <br />
+                <p>可以预订酒店。</p>
+            </div>
+            <div>
+                <input type="button" id="btnNotice" value="公告" class="btn btn-primary btn-block" disabled="true" />
                 <br />
                 <p>本站 WEB 服务来源于：http://www.webxml.com.cn/</p>
             </div>
@@ -56,17 +61,14 @@
         <div class="col-lg-10">
             <div class="panel panel-primary">
                 <div class="panel-title">
-                    <div style="text-align: center; font-size: 24px">预订</div>
+                    <div style="text-align: center; font-size: 24px">预订机票</div>
                 </div>
                 <div class="panel-body" style="text-align: center; margin-top: 100px; margin-bottom: 100px">
                     <div class="row" style="margin-bottom:20px">
                         <table id="tabTickets" class="table table-bordered">
-                            <input type="hidden" id="airCode" name="airCode"/>
-                            <input type="hidden" id="startTime" name="startTime"/>
-                            <input type="hidden" id="arriveTime" name="arriveTime"/>
-                            <input type="hidden" id="theDate" name="theDate" value="${ticket.date}"/>
+                            <input type="hidden" id="ticketId" name="ticketId" value="${ticket.id}"/>
                             <input type="hidden" id="passengerName" name="passengerName"/>
-                            <tr class="active">
+                            <tr class="active" id="thead">
                                 <td>航空公司</td>
                                 <td>航班号</td>
                                 <td>出发机场</td>
@@ -78,25 +80,25 @@
                             </tr>
                             <tr>
                                 <td>${ticket.company}</td>
-                                <td id="airCodeShow">${ticket.airCode}</td>
+                                <td>${ticket.airCode}</td>
                                 <td>${ticket.startDrome}</td>
                                 <td>${ticket.arriveDrome}</td>
-                                <td id="startTimeShow">${ticket.startTime}</td>
-                                <td id="arriveTimeShow">${ticket.arriveTime}</td>
+                                <td>${ticket.startTime}</td>
+                                <td>${ticket.arriveTime}</td>
                                 <td>${ticket.mode}</td>
                                 <td>
-                                    <select id="selPassenger" class="form-control">
-                                        <c:forEach var="passenger" items="${passengerList}" varStatus="i">
-                                            <c:choose>
-                                                <c:when test="${i.index == 0}">
-                                                    <option selected="selected">${passenger.name}</option>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <option>${passenger.name}</option>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </c:forEach>
-                                    </select>
+                                    <c:choose>
+                                        <c:when test="${fn:length(passengerList) == 0}">
+                                            <input type="button" id="btnAdd" value="添加" class="form-control" onclick="javascript:location='${pageContext.request.contextPath}/passenger/add.html'"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <select id="selPassenger" class="form-control">
+                                            <c:forEach var="passenger" items="${passengerList}" varStatus="i">
+                                                <option>${passenger.name}</option>
+                                            </c:forEach>
+                                            </select>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </td>
                             </tr>
                         </table>
@@ -123,7 +125,7 @@
 </form>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/common.js" type="text/javascript"></script>
-<script src="../js/bookticket.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/bookticket.js" type="text/javascript"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<form id="passengerForm" method="post" action="/AirSystem/passenger/doPassengerAdd.html">
+<form id="passengerForm" method="post" action="/AirSystem/passenger/doAdd.html">
     <div class="container-fluid">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
@@ -116,7 +116,7 @@
 </form>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/common.js" type="text/javascript"></script>
-<script src="../js/passengeradd.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/passengeradd.js" type="text/javascript"></script>
 </body>
 </html>

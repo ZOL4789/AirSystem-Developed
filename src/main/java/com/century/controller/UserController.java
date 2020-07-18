@@ -4,7 +4,6 @@ import com.century.service.PassengerService;
 import com.century.service.UserService;
 import com.century.vo.Passenger;
 import com.century.vo.User;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.net.IDN;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -50,7 +49,7 @@ public class UserController {
             cookie.setMaxAge(60*60*24*7);
             cookie.setPath("/");    //设置全局访问
             response.addCookie(cookie);
-            RedirectView redirectView=new RedirectView("/hotel/hoteladd.html",true,true);
+            RedirectView redirectView=new RedirectView("/hotel/sys/listAll.html",true,true);
             ModelAndView modelAndView = new ModelAndView(redirectView);
             modelAndView.addObject("msg","欢迎使用AirSystem管理系统！");
             return modelAndView;
@@ -82,11 +81,12 @@ public class UserController {
     }
 
 
-    @RequestMapping("/changePwd")
+    @RequestMapping("/updatePassword")
     public ModelAndView changePwd(String oldPassword, String newPassword, HttpServletRequest request){
-        ModelAndView modelAndView = new ModelAndView();
+        RedirectView redirectView = new RedirectView("/user/logout.html", true, true);
+        ModelAndView modelAndView = new ModelAndView(redirectView);
         Cookie[] cookies = request.getCookies();
-        String userName = "";
+        String userName = null;
         if(cookies != null) {
             for(Cookie cookie : cookies){
                 if(cookie.getName().equals("userName")){
@@ -96,7 +96,6 @@ public class UserController {
         }
         int status = userService.changePwd(userName, oldPassword, newPassword);
         modelAndView.addObject("status", status);
-        modelAndView.setViewName("../../jsp/login");
         return modelAndView;
     }
 
@@ -105,7 +104,7 @@ public class UserController {
     public ModelAndView personalInfo(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
         Cookie[] cookies = request.getCookies();
-        String userName = "";
+        String userName = null;
         if(cookies != null) {
             for(Cookie cookie : cookies){
                 if(cookie.getName().equals("userName")){
@@ -134,7 +133,7 @@ public class UserController {
     @RequestMapping("/getUserName")
     public String getUserName(HttpServletRequest request){
         Cookie[] cookies = request.getCookies();
-        String userName = "";
+        String userName = null;
         if(cookies != null) {
             for(Cookie cookie : cookies){
                 if(cookie.getName().equals("userName")){
@@ -161,5 +160,45 @@ public class UserController {
     }
 
 
+    @RequestMapping("/sys/listAll.html")
+    public ModelAndView listAll(@RequestParam(required = false) String pageIndex){
+        int pageSize = 10;
+        if(pageIndex == null){
+            pageIndex = "1";
+        }
+        ModelAndView modelAndView = new ModelAndView();
+        List<User> userList = userService.getAllUser();
+        List<User> userListResult = new ArrayList<User>();
+        int pageNum = (int)Math.ceil(userList.size()/ 1.0 / pageSize);
+        int max = userList.size() > Integer.parseInt(pageIndex) * pageSize ? Integer.parseInt(pageIndex) * pageSize : userList.size();
+        for(int i = (Integer.parseInt(pageIndex) - 1) * pageSize; i < max; i++){
+            userListResult.add(userList.get(i));
+        }
+        modelAndView.addObject("userList", userListResult);
+        modelAndView.addObject("pageNum", pageNum);
+        modelAndView.addObject("pageIndex", pageIndex);
+        modelAndView.setViewName("../../jsp/admin/userlist");
+        return modelAndView;
+    }
+
+    @ResponseBody
+    @RequestMapping("/sys/delete")
+    public boolean delete(@RequestBody Map<String, Object> mapParam){
+        int status = userService.removeUser(mapParam);
+        if(status > 0){
+            return true;
+        }
+        return false;
+    }
+
+    @ResponseBody
+    @RequestMapping("/sys/update")
+    public boolean update(@RequestBody Map<String, Object> mapParam){
+        int status = userService.updateUser(mapParam);
+        if(status > 0){
+            return true;
+        }
+        return false;
+    }
 
 }

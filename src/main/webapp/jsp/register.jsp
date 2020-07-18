@@ -97,7 +97,7 @@
                         </div>
                         <br />
                         <div class="row">
-                            <div class="col-lg-6 col-lg-offset-3" style="margin-bottom:250px">
+                            <div class="col-lg-6 col-lg-offset-3">
                                 <input type="button" id="btnSubmit" value="注册" class="btn btn-primary col-lg-12" />
                             </div>
                         </div>
@@ -120,7 +120,7 @@
 </form>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/common.js" type="text/javascript"></script>
-<script src="../js/register.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/register.js" type="text/javascript"></script>
 </body>
 </html>

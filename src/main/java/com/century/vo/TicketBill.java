@@ -1,9 +1,8 @@
 package com.century.vo;
 
-public class Bill {
+public class TicketBill {
     private int id;
     private int ticketId;
-    private int userId;
     private int passengerId;
     private String date;
     private Ticket ticket;
@@ -25,13 +24,6 @@ public class Bill {
         this.ticketId = ticketId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     public String getDate() {
         return date;

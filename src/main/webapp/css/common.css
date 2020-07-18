@@ -1,0 +1,15 @@
+.delete{
+    color: #ffffff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.update{
+    color: #ffffff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
+.choose{
+    background-color: #f5f5f5;
+}

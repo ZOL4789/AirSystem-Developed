@@ -13,9 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSystem-查询</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
-<form id="ticketForm" method="post" action="/AirSystem/ticket/list.html">
+<form id="ticketForm" method="post" action="/AirSystem/ticket/queryList.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -43,13 +44,17 @@
                 <p>选择出发地、目的地和出发时间以进行航班班次查询。</p>
             </div>
             <div>
-                <input type="button" id="btnBuyInQueryPage" value="机票购买" class="btn btn-primary btn-block" disabled="true"/>
+                <input type="button" id="btnBuy" value="机票预订" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/ticket/toBook.html'"/>
                 <br />
                 <p>使用该功能需要登录。</p>
-                <p>登录后请点击需要购买的机票进行购买。</p>
             </div>
             <div>
-                <input type="button" id="btnNotice" value="公告" class="btn btn-primary btn-block" disabled="true"/>
+                <input type="button" id="btnBookHotel" value="酒店预订" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/hotel/queryList.html'" />
+                <br />
+                <p>可以预订酒店。</p>
+            </div>
+            <div>
+                <input type="button" id="btnNotice" value="公告" class="btn btn-primary btn-block" disabled="true" />
                 <br />
                 <p>本站 WEB 服务来源于：http://www.webxml.com.cn/</p>
             </div>
@@ -66,7 +71,8 @@
                             <input type="hidden" id="arriveCity" name="arriveCity" value="${arriveCity}"/>
                             <input type="hidden" id="theDate" name="theDate" value="${theDate}"/>
                             <input type="hidden" id="pageNum" name="pageNum" value="${pageNum}"/>
-                            <tr class="active">
+                            <input type="hidden" id="ticketId" name="ticketId"/>
+                            <tr class="active" id="thead">
                                 <td>航空公司</td>
                                 <td>航班号</td>
                                 <td>出发机场</td>
@@ -78,7 +84,7 @@
                                 <td>飞行周期（星期）</td>
                             </tr>
                             <c:forEach var="ticket" items="${ticketList}" varStatus="i">
-                                <tr onclick="toBuy(${i.index})">
+                                <tr class="choose" ticketId="${ticket.id}">
                                     <td>${ticket.company}</td>
                                     <td>${ticket.airCode}</td>
                                     <td>${ticket.startDrome}</td>
@@ -124,15 +130,9 @@
     </div>
 </div>
 </form>
-<form id="buyForm" method="post" action="/AirSystem/ticket/toBookTicket.html">
-    <input type="hidden" id="airCode" name="airCode"/>
-    <input type="hidden" id="startTime" name="startTime"/>
-    <input type="hidden" id="arriveTime" name="arriveTime"/>
-    <input type="hidden" id="theDateToBuy" name="theDateToBuy"/>
-</form>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/common.js" type="text/javascript"></script>
-<script src="../js/query.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/queryticket.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.century.vo;
 
-
 import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")

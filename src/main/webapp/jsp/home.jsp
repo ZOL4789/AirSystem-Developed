@@ -15,7 +15,7 @@
     <link href="../content/jquery.datetimepicker.css" rel="stylesheet" />
 </head>
 <body>
-<form id="searchForm" method="post" action="/AirSystem/ticket/list.html">
+<form id="searchForm" method="post" action="/AirSystem/ticket/queryList.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -43,12 +43,12 @@
                 <p>选择出发地、目的地和出发时间以进行航班班次查询。</p>
             </div>
             <div>
-                <input type="button" id="btnBuy" value="机票购买" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/ticket/toBookTicket.html'"/>
+                <input type="button" id="btnBuy" value="机票预订" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/ticket/toBook.html'"/>
                 <br />
                 <p>使用该功能需要登录。</p>
             </div>
             <div>
-                <input type="button" id="btnBookHotel" value="酒店预订" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/hotel/toBookHotel.html'" />
+                <input type="button" id="btnBookHotel" value="酒店预订" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/hotel/queryList.html'" />
                 <br />
                 <p>可以预订酒店。</p>
             </div>
@@ -128,8 +128,8 @@
 </form>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../scripts/jquery.datetimepicker.js"></script>
-<script src="../js/common.js" type="text/javascript"></script>
-<script src="../js/home.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/scripts/jquery.datetimepicker.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/home.js" type="text/javascript"></script>
 </body>
 </html>

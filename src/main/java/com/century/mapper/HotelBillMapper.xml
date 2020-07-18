@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.century.dao.HotelBillDAO">
+
+    <resultMap id="hotelBillResult" type="HotelBill">
+        <id property="id" column="hb_id"/>
+        <result property="checkInDate" column="checkInDate"/>
+        <result property="checkOutDate" column="checkOutDate"/>
+        <result property="date" column="hb_date"/>
+        <association property="passenger" javaType="Passenger">
+            <id property="id" column="p_id"/>
+            <result property="name" column="p_name"/>
+            <result property="IDNum" column="IDNum"/>
+            <result property="roleType" column="roleType"/>
+            <association property="user" javaType="User">
+                <id property="id" column="u_id"/>
+                <result property="name" column="u_name"/>
+                <result property="password" column="password"/>
+                <result property="phone" column="phone"/>
+                <result property="email" column="email"/>
+                <result property="date" column="u_date"/>
+                <result property="money" column="money"/>
+            </association>
+        </association>
+        <association property="hotel" javaType="Hotel">
+            <id property="id" column="h_id"/>
+            <result property="name" column="h_name"/>
+            <result property="address" column="address"/>
+            <result property="fullAddress" column="fullAddress"/>
+            <result property="mark" column="mark"/>
+            <result property="singleRoomLeft" column="singleRoomLeft"/>
+            <result property="singleRoomPrice" column="singleRoomPrice"/>
+            <result property="doubleRoomLeft" column="doubleRoomLeft"/>
+            <result property="doubleRoomPrice" column="doubleRoomPrice"/>
+        </association>
+    </resultMap>
+
+
+    <insert id="addHotelBill" parameterType="hotelBill">
+        insert into hotel_bill(hotelId, checkInDate, checkOutDate, date, passengerId) values
+        (#{hotelId}, #{checkInDate}, #{checkOutDate}, #{date}, #{passengerId})
+    </insert>
+    <delete id="deleteHotelBill" parameterType="String">
+        delete from hotel_bill where  id = #{hotelBillId}
+    </delete>
+    <select id="queryHotelBillByUserId" parameterType="int" resultMap="hotelBillResult">
+        select hb.id hb_id, checkInDate, checkOutDate, hb.date hb_date, p.id p_id, p.name p_name, p.IDNum, p.roleType, u.id u_id,
+        u.name u_name, u.password, u.phone, u.email, u.date u_date, u.money, h.id h_id, h.name h_name, h.address, h.fullAddress, h.mark,
+        h.singleRoomLeft, h.singleRoomPrice, h.doubleRoomLeft, h.doubleRoomPrice from hotel_bill hb join passenger p on hb.passengerId = p.id
+        join user u on p.userId = u.id join hotel h on hb.hotelId = h.id where p.userId = #{userId}
+    </select>
+    <select id="queryAllHotelBills" resultMap="hotelBillResult">
+        select hb.id hb_id, checkInDate, checkOutDate, hb.date hb_date, p.id p_id, p.name p_name, p.IDNum, p.roleType, u.id u_id,
+        u.name u_name, u.password, u.phone, u.email, u.date u_date, u.money, h.id h_id, h.name h_name, h.address, h.fullAddress, h.mark,
+        h.singleRoomLeft, h.singleRoomPrice, h.doubleRoomLeft, h.doubleRoomPrice from hotel_bill hb join passenger p on hb.passengerId = p.id
+        join user u on p.userId = u.id join hotel h on hb.hotelId = h.id
+    </select>
+    <update id="updateHotelBill" parameterType="map">
+        update hotel_bill
+        <trim prefix="set" suffixOverrides="," suffix="where id = #{hotelBillId}">
+            <if test="checkInDate!= null and checkInDate != ''">
+                checkInDate = #{checkInDate},
+            </if>
+            <if test="checkOutDate != null and checkOutDate != ''">
+                checkOutDate = #{checkOutDate},
+            </if>
+        </trim>
+    </update>
+</mapper>

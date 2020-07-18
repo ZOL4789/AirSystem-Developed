@@ -21,9 +21,21 @@ function getUserName(){
                 $("#UserList").append("<ul class='dropdown-menu' style='text-align:center' id='menu'>" +
                     "<li><a href='/AirSystem/user/personalInfo.html'>个人信息</a></li>" +
                     "<li><a href='/AirSystem/user/changePwd.html'>修改密码</a></li>" +
-                    "<li><a href='/AirSystem/bill/list.html'>我的订单</a></li>" +
-                    "<li><a href='#' onclick='logout()'>退出登录</a></li>" +
+                    "<li><a href='/AirSystem/ticket/bill/list.html'>我的机票订单</a></li>" +
+                    "<li><a href='/AirSystem/hotel/bill/list.html'>我的酒店订单</a></li>" +
                     "</ul>");
+                if(userName == "admin"){
+                    $("#menu").append(
+                        "<li><a href='/AirSystem/hotel/bill/sys/listAll.html'>所有酒店订单</a></li>" +
+                        "<li><a href='/AirSystem/ticket/bill/sys/listAll.html'>所有机票订单</a></li>" +
+                        "<li><a href='/AirSystem/hotel/sys/listAll.html'>查看所有酒店</a></li>" +
+                        "<li><a href='/AirSystem/hotel/sys/add.html'>添加酒店</a></li>" +
+                        "<li><a href='/AirSystem/ticket/sys/listAll.html'>查看所有机票</a></li>" +
+                        "<li><a href='/AirSystem/passenger/sys/listAll.html'>查看所有乘客</a></li>" +
+                        "<li><a href='/AirSystem/user/sys/listAll.html'>查看所有用户</a></li>"
+                    )
+                }
+                $("#menu").append("<li><a href='#' onclick='logout()'>退出登录</a></li>");
                 $("#UserList").hover(function () {
                     $("#menu").slideDown(200);
                 }, function () {
@@ -31,8 +43,8 @@ function getUserName(){
                 });
             }
         },
-        error:function (msg) {
-            alert("失败！" + msg);
+        error:function () {
+            alert("获取用户信息失败！");
         }
     });
 }

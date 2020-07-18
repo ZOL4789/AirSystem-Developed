@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,8 @@ public class TicketService {
         return ticketList;
     }
 
-    public List<Ticket> saveTickets(List<Ticket> ticketList, String startCity, String arriveCity, String date){
+    public int saveTickets(String startCity, String arriveCity, String date){
+        List<Ticket> ticketList = new ArrayList<Ticket>();
         DomesticAirlineLocator domesticAirlineLocator = new DomesticAirlineLocator();
         try {
             DomesticAirlineSoap_PortType domesticAirline = domesticAirlineLocator.getDomesticAirlineSoap12();
@@ -58,27 +60,33 @@ public class TicketService {
                     ticket.setDate(date);
                     ticketList.add(ticket);
                 }
-                ticketDAO.addTicketBatch(ticketList);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (javax.xml.rpc.ServiceException e) {
             e.printStackTrace();
         }
-        return ticketList;
+        return ticketDAO.addTicketBatch(ticketList);
     }
 
-    public Ticket getTicketToBuy(String airCode, String startTime, String arriveTime, String theDate){
+    public Ticket getTicketToBuy(String ticketId){
         Ticket ticket = new Ticket();
-        if(airCode != null && startTime != null && arriveTime != null && theDate != null){
-            Map<String, Object> mapCondition = new HashMap<String, Object>();
-            mapCondition.put("airCode", airCode);
-            mapCondition.put("startTime", startTime);
-            mapCondition.put("arriveTime", arriveTime);
-            mapCondition.put("date", theDate);
-            ticket = ticketDAO.queryTicketByMap_airCode_startTime_arriveTime_date(mapCondition);
+        if(ticketId != null){
+            ticket = ticketDAO.queryTicketById(ticketId);
         }
         return ticket;
     }
 
+    public List<Ticket> getAllTicket(){
+        return ticketDAO.queryAllTickets();
+    }
+
+    public int removeTicket(Map<String,Object> map){
+        String ticketId = (String)map.get("ticketId");
+        return ticketDAO.deleteTicketById(ticketId);
+    }
+
+    public int updateTicket(Map<String, Object> map){
+        return ticketDAO.updateTicket(map);
+    }
 }

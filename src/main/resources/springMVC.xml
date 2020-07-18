@@ -19,8 +19,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <property name="supportedMediaTypes">
                     <list>
-                    <value>application/json;charset=UTF-8</value>
-                    <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
                     </list>
                 </property>
             </bean>
@@ -74,7 +74,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
         <property name="messageConverters">
             <list>
                 <bean
-                    class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+                        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
             </list>
         </property>
     </bean>
@@ -88,4 +88,13 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
             <value>4096</value>
         </property>
     </bean>
+
+    <!-- 配置interceptors -->
+    <mvc:interceptors>
+        <bean class="com.century.interceptor.SysInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/sys/**"/>
+            <bean class="com.century.interceptor.SysInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

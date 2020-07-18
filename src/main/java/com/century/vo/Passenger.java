@@ -7,6 +7,8 @@ public class Passenger {
     private Role role;
     private int roleType;
     private int userId;
+    private User user;
+    private String date;
 
     public int getId() {
         return id;
@@ -54,5 +56,22 @@ public class Passenger {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

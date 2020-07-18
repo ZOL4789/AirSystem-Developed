@@ -9,18 +9,7 @@ $(function(){
             $("#registerForm").submit();
         }
     })
-
-    myFunction();
 })
-
-
-function myFunction() {
-    var x="${sessionScope.result2}";
-    if (x!=null&&x!=""){
-        alert(x);
-    }
-}
-
 //判断两次密码输入是否一致
 function pwdIsSame() {
     var pwd1=$("#txtPassword").val();

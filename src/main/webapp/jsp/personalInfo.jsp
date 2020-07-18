@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<form id="personalInfoForm" method="post" action="/AirSystem/passenger/passengeradd.html">
+<form id="personalInfoForm" method="post" action="/AirSystem/passenger/add.html">
 <div class="container-fluid">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -38,19 +38,24 @@
     <div class="container">
         <div class="col-lg-2">
             <div>
-                <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/personalInfo.html'"/>
+                <input type="button" id="btnInfo" value="账号信息" class="btn btn-primary btn-block" onclick="javascript:location='${pageContext.request.contextPath}/user/personalInfo.html'"/>
                 <br />
                 <p>可查看本账号的个人信息。</p>
             </div>
             <div>
-                <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/user/changePwd.html'"/>
+                <input type="button" id="btnChangePwd" value="修改密码" class="btn btn-primary btn-block" onclick="javascript:location='${pageContext.request.contextPath}/user/changePwd.html'"/>
                 <br />
                 <p>可修改本账号的密码。</p>
             </div>
             <div>
-                <input type="button" id="btnBill" value="我的订单" class="btn btn-primary btn-block" onclick="javascript:location='/AirSystem/bill/list.html'"/>
+                <input type="button" id="btnTicketBill" value="机票订单" class="btn btn-primary btn-block" onclick="javascript:location='${pageContext.request.contextPath}/ticket/bill/list.html'"/>
                 <br />
-                <p>可查看本账号以往的购买记录。</p>
+                <p>可查看本账号以往的机票预订记录。</p>
+            </div>
+            <div>
+                <input type="button" id="btnHotelBill" value="酒店订单" class="btn btn-primary btn-block" onclick="javascript:location='${pageContext.request.contextPath}/hotel/bill/list.html'"/>
+                <br />
+                <p>可查看本账号以往的酒店预订记录。</p>
             </div>
             <div>
                 <input type="button" id="btnLogout" value="退出登录" class="btn btn-danger btn-block" />
@@ -123,7 +128,7 @@
 </form>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/common.js" type="text/javascript"></script>
-<script src="../js/personalInfo.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/common.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/personalInfo.js" type="text/javascript"></script>
 </body>
 </html>

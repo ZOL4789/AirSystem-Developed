@@ -40,4 +40,33 @@
     <insert id="addUser" parameterType="user">
             insert into user(<include refid="userInsertColumn"></include>) values (#{name},#{password},#{phone},#{email},#{date}, #{money});
     </insert>
+    <select id="queryAllUser" resultType="user">
+        select * from user
+    </select>
+    <select id="queryUserById" parameterType="int"  resultType="user">
+        select * from user where id = #{userId}
+    </select>
+    <delete id="deleteUserById" parameterType="map">
+        delete from user where id = #{userId}
+    </delete>
+    <update id="updateUser" parameterType="map">
+        update user
+        <trim prefix="set" suffixOverrides="," suffix="where id = #{userId}">
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="money != null and money != ''">
+                money = #{money},
+            </if>
+        </trim>
+    </update>
 </mapper>

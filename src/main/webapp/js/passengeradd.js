@@ -11,6 +11,8 @@ $(function(){
         add();
     })
 
+    getUserName();
+
 })
 
 function add(){

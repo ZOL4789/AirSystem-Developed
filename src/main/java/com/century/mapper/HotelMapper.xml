@@ -5,4 +5,50 @@
 <mapper namespace="com.century.dao.HotelDAO">
 
 
+
+    <select id="queryAllHotel" resultType="hotel">
+        select * from hotel;
+    </select>
+    <insert id="addHotel" parameterType="hotel">
+        insert into hotel(name, address, fullAddress, mark, singleRoomLeft, doubleRoomLeft, singleRoomPrice, doubleRoomPrice) values
+        (#{name}, #{address}, #{fullAddress}, #{mark}, #{singleRoomLeft}, #{singleRoomPrice}, #{doubleRoomLeft}, #{doubleRoomPrice})
+    </insert>
+    <select id="queryRoomType" resultType="String">
+        select type from room;
+    </select>
+    <select id="queryHotelByAddress" parameterType="String" resultType="hotel">
+        select * from hotel where address = #{address}
+    </select>
+    <select id="queryHotelById" parameterType="String" resultType="hotel">
+        select * from hotel where id = #{hotelId}
+    </select>
+    <delete id="deleteHotel" parameterType="String">
+        delete from hotel where  id = #{hotelId}
+    </delete>
+    <update id="updateHotel" parameterType="map">
+        update hotel
+        <trim prefix="set" suffixOverrides="," suffix="where id = #{hotelId}">
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="fullAddress != null and fullAddress != ''">
+                fullAddress = #{fullAddress},
+            </if>
+            <if test="singleRoomLeft != null and singleRoomLeft != ''">
+                singleRoomLeft = #{singleRoomLeft},
+            </if>
+            <if test="singleRoomPrice != null and singleRoomPrice != ''">
+                singleRoomPrice = #{singleRoomPrice},
+            </if>
+            <if test="doubleRoomLeft != null and doubleRoomLeft != ''">
+                doubleRoomLeft = #{doubleRoomLeft},
+            </if>
+            <if test="doubleRoomPrice != null and doubleRoomPrice != ''">
+                doubleRoomPrice = #{doubleRoomPrice},
+            </if>
+        </trim>
+    </update>
 </mapper>

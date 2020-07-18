@@ -39,7 +39,7 @@ function updatePwd() {
 function pwdIsSame() {
     var pwd1=$("#txtNewPassword").val();
     var pwd2=$("#txtNewPasswordAgain").val();
-    if(pwd1==pwd2){
+    if(pwd1 == pwd2){
         return true;
     }
     else{
